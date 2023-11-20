@@ -2,7 +2,6 @@
 package com.javarush.quest.lazarev.controller;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,15 +11,11 @@ import services.JsonService;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "startGameServlet", value = {"/startGame", "/quest", "/welcome", "/stage_0", "/stage_1", "/stage_2", "/stage_3", "/stage_4"
-        , "/stage_5", "/stage_6", "/stage_7", "/loss", "/happy_end"})
 public class GameServlet extends HttpServlet {
-
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String servletPath = request.getServletPath();
-        if ("/startGame".equals(servletPath)) {
+        if ("/".equals(servletPath)) {
             request.getRequestDispatcher("/WEB-INF/view/welcome.jsp").forward(request, response);
 
         } else if ("/quest".equals(servletPath)) {
